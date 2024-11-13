@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="w-full">
+    <div class='flex w-8/12 bg-white shadow-md rounded-lg overflow-hidden mx-auto'>
+        <div class="flex flex-col w-full">
+            <!-- Displaying the current song details -->
+            <div class="flex p-5 border-b">
+                <img class='w-20 h-20 object-cover' alt='User avatar' id="player-song-img" src="https://t4.ftcdn.net/jpg/00/47/91/87/360_F_47918751_6KYmK01HuduPKu2JYGOk67HQGw5RG1uC.jpg">
+                <div class="flex flex-col px-2 w-full">
+                    <span class="text-xs text-gray-700 uppercase font-medium ">now playing</span>
+                    <span id="player-song-title" class="text-sm text-red-500 capitalize font-semibold pt-1">No song playing</span>
+                    <span id="player-song-artist" class="text-xs text-gray-500 uppercase font-medium ">No artist</span>
+                </div>
+            </div>
+            
+            <!-- Music controls -->
+            <div class="flex flex-col sm:flex-row items-center p-5">
+                <div class="flex items-center">
+                    <div class="flex space-x-3 p-2">
+                        <button id="previous" class="focus:outline-none">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="19 20 9 12 19 4 19 20"></polygon><line x1="5" y1="19" x2="5" y2="5"></line></svg>
+                        </button>
+                        <button id="play" class="rounded-full h-10 w-10 h-10 flex items-center justify-center pl-0.5 ring-1 ring-red-400 focus:outline-none">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </button>
+                        <button id="pause" class="hidden rounded-full h-10 w-10 h-10 flex items-center justify-center pl-0.5 ring-1 ring-red-400 focus:outline-none">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                        </button>
+                        <button id="next" class="focus:outline-none">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" y1="5" x2="19" y2="19"></line></svg>
+                        </button>
+                        <button id="shuffle" class="focus:outline-none">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"></path><path d="M4 20l5-5 5 5M4 4l5 5-5 5m11 6h5v-5"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="relative w-full sm:w-1/2 md:w-7/12 lg:w-4/6 ml-2">
+                    <div class="bg-red-300 h-2 w-full rounded-lg"></div>
+                    <div id="progress-bar" class="bg-red-500 h-2 w-0 rounded-lg absolute top-0"></div> <!-- Added id here -->
+                </div>
+            </div>
+            
+            <!-- Playlist container -->
+            <div id="playlist" class="flex flex-col p-5">
+                <div class="playlist-bar">
+                <h2 class="playlist-title text-xs text-gray-700 uppercase font-medium" id="playlist">Playlist</h2>
+                </div>
+                <ul id="playlist-songs"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
